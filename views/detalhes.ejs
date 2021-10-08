@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Detalhes</title>
+</head>
+
+<body>
+    <nav class= "wrap">
+        <!-- <img src="/img/pokebola-go.png" class="img-fluid gif" alt="Animação Pokebola"> -->
+        
+        <a href="/">Home | </a>
+         
+        <a href="criar">Cadastro | </a>
+        
+        <a href="detalhes">Detalhes | </a>
+
+        <a href="animes">Animes | </a>
+     
+    </nav>
+
+    <header>
+        <article>
+            <h1>AQUI SERA A PARTE QUE USAREMOS PRA PUXAR OS DETALHES DOS PERSONAGENS CADASTRADO, ABAIXO SEGUE O EXEMPLO DA POKEDEX PRA USAR DE REFERENCIA</h1>
+        </article>
+    </header>
+
+    <section id="cursos">
+        <section class="card">
+
+            <article id="content">
+                  
+                <ul>
+                    <img src="<%= pokedexx.imagem %>" width="100%" height="100%">
+                    <li><h2>Numero: <%= pokedexx.numero %></h2> </li>
+                    <li><h2>Nome: <%= pokedexx.nome %></h2> </li>
+                    <li><h2>Tipo: <%= pokedexx.tipo %></h2> </li>
+                    <li><h2>Descrição: <%= pokedexx.descricao %></h2> </li>   
+                    <li><h2>Altura: <%= pokedexx.altura %></h2> </li>
+                    <li><h2>Peso: <%= pokedexx.peso %></h2> </li>
+                    <li><h2>Categoria: <%= pokedexx.categoria %></h2> </li>
+                    <li><h2>Habilidade: <%= pokedexx.habilidade %></h2> </li>
+                </ul>
+            </article>
+        </section>
+    </section>
+    
+    <footer>
+        <p>
+            < copyright 2021 by myself > 
+        </p>
+    </footer>
+    <script src ="/js/script.js"></script>
+
+</body>
+
+</html>
