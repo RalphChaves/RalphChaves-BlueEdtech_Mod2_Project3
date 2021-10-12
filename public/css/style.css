@@ -41,6 +41,13 @@ img{
   justify-content: top;
 }
 
+h4{
+  color: fuchsia;
+  font-style: italic;
+  background-color: yellow;
+  box-shadow: 5px 5px 10px rgba(black, 0, 0, 0.);
+}
+
 a, .wrap{
   display:flex;
   width: 35%;
