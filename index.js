@@ -40,10 +40,6 @@ app.get("/", function (req, res) {
     
 });
 
-app.get("/personagens", function (req, res) {
-    res.render("personagens");
-
-});
 app.get('/personagens', async (req,res) => {
     const personagens = await Personagens.findAll();
     res.json(personagens);
