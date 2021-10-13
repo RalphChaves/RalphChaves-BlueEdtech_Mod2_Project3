@@ -32,7 +32,7 @@ const Personagens = database.sequelize.define("personagens", {
     },
     descricao:{
         type: Sequelize.TEXT,
-        allowNull: true,
+        allowNull: false,
     },
 },{
     freezeTablename: true,

@@ -40,6 +40,11 @@ app.get("/", function (req, res) {
     
 });
 
+app.get("/personagens/:id", async (req, res) => {
+const personagens = await Personagens.findByPk(req.params.id);
+res.render("detalhes", {    personagens,  });
+});
+
 app.get('/personagens', async (req,res) => {
     const personagens = await Personagens.findAll();
     res.json(personagens);
@@ -50,29 +55,46 @@ app.get("/criar", function (req, res) {
 
 });
 
+app.post("/criar", async (req, res) => {
+    const { pers_name, raca, habilidade, ima_url, equipamento, descricao } = req.body;
+    
+    const personagem = await Personagens.create({
+        pers_name,
+        raca,
+        habilidade,
+        ima_url,
+        equipamento,
+        descricao,
+    });
+  
+    res.render("criar", {
+      personagem,
+    });
+  });
+
 app.get("/animes", function (req, res) {
     res.render("animes");
 
 });
 
-app.get("/detalhes", function (req, res) {
-    res.render("detalhes",{Personagens: Personages});
+// app.get("/detalhes", function (req, res) {
+//     res.render("detalhes",{Personagens: Personages});
 
-});
+// });
 
-app.post("/new_criar", function (req, res) {
-    const {pers_name, raca, habilidade, ima_url, equipamento, descricao} = req.body;
-    Personagens.push({
-    pers_name: nome,
-    raca: raca,
-    habilidade: habilidade,
-    ima_url: imagem,
-    equipamento: equipamento,
-    descricao: descricao});
+// app.post("/new_criar", function (req, res) {
+//     const {pers_name, raca, habilidade, ima_url, equipamento, descricao} = req.body;
+//     Personagens.push({
+//     pers_name: nome,
+//     raca: raca,
+//     habilidade: habilidade,
+//     ima_url: imagem,
+//     equipamento: equipamento,
+//     descricao: descricao});
     
-    message = "Pokemon cadastrado com sucesso.";
-    res.redirect("/detalhes",{pers});
-}); 
+//     message = "Pokemon cadastrado com sucesso.";
+//     res.redirect("/detalhes",{pers});
+// }); 
 
 
 app.get("/detalhes/:id", function (req, res) {
