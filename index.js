@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // }];
 
-const pers = 
+
     
 
 app.get("/", function (req, res) {
@@ -40,9 +40,13 @@ app.get("/", function (req, res) {
     
 });
 
+app.get("/personagens", function (req, res) {
+    res.render("personagens");
+
+});
 app.get('/personagens', async (req,res) => {
     const personagens = await Personagens.findAll();
-    res.render(personagens);
+    res.json(personagens);
     
 });
 app.get("/criar", function (req, res) {
