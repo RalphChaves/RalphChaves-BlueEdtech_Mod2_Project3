@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <title>Detalhes</title>
+    required: 'Personagens';
 </head>
 
 <body>
@@ -35,15 +36,13 @@
             <article id="content">
                   
                 <ul>
-                    <img src="<%= pokedexx.imagem %>" width="100%" height="100%">
-                    <li><h2>Numero: <%= pokedexx.numero %></h2> </li>
-                    <li><h2>Nome: <%= pokedexx.nome %></h2> </li>
-                    <li><h2>Tipo: <%= pokedexx.tipo %></h2> </li>
-                    <li><h2>Descrição: <%= pokedexx.descricao %></h2> </li>   
-                    <li><h2>Altura: <%= pokedexx.altura %></h2> </li>
-                    <li><h2>Peso: <%= pokedexx.peso %></h2> </li>
-                    <li><h2>Categoria: <%= pokedexx.categoria %></h2> </li>
-                    <li><h2>Habilidade: <%= pokedexx.habilidade %></h2> </li>
+                    <img src="<%= Personagens.imagem %>" width="100%" height="100%">
+                    
+                    <li><h2>Nome: <%= Personagens.nome %></h2> </li>
+                    <li><h2>Raça: <%= Personagens.raca %></h2> </li>
+                    <li><h2>Habilidade: <%= Personagens.habilidade %></h2> </li>
+                    <li><h2>Equipamento: <%= Personagens.equipamento %></h2> </li>
+                    <li><h2>Descrição: <%= Personagens.descricao %></h2> </li>
                 </ul>
             </article>
         </section>
