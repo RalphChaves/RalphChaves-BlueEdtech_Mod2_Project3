@@ -22,10 +22,6 @@ const Personagens = database.sequelize.define("personagens", {
         type: Sequelize.STRING,
         allowNull: false,
     },
-    idade:{
-        type: Sequelize.INTEGER,
-        allowNull: true,
-    },
     ima_url:{
         type: Sequelize.STRING,
         allowNull: false,
@@ -33,7 +29,11 @@ const Personagens = database.sequelize.define("personagens", {
     equipamento:{
     type: Sequelize.STRING,
         allowNull: false,
-    }
+    },
+    descricao:{
+        type: Sequelize.TEXT,
+        allowNull: true,
+    },
 },{
     freezeTablename: true,
     timestamps: false,

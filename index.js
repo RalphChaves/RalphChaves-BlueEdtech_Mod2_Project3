@@ -27,6 +27,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // }];
 
+const pers = 
+    
+
 app.get("/", function (req, res) {
    
     // setTimeout(() => {
@@ -39,7 +42,7 @@ app.get("/", function (req, res) {
 
 app.get('/personagens', async (req,res) => {
     const personagens = await Personagens.findAll();
-    res.json(personagens);
+    res.render(personagens);
     
 });
 app.get("/criar", function (req, res) {
@@ -52,21 +55,23 @@ app.get("/animes", function (req, res) {
 
 });
 
+app.get("/detalhes", function (req, res) {
+    res.render("detalhes",{Personagens: Personages});
+
+});
+
 app.post("/new_criar", function (req, res) {
-    const {numero, nome, tipo, imagem, descricao, altura, peso, categoria, habilidade} = req.body;
-    pokedex.push({
-    numero:numero,
-    nome:nome,
-    tipo: tipo,
-    imagem:imagem,
-    descricao:descricao,
-    altura: altura,
-    peso: peso,
-    categoria: categoria,
-    habilidade: habilidade});
+    const {pers_name, raca, habilidade, ima_url, equipamento, descricao} = req.body;
+    Personagens.push({
+    pers_name: nome,
+    raca: raca,
+    habilidade: habilidade,
+    ima_url: imagem,
+    equipamento: equipamento,
+    descricao: descricao});
     
     message = "Pokemon cadastrado com sucesso.";
-    res.redirect("/");
+    res.redirect("/detalhes",{pers});
 }); 
 
 
