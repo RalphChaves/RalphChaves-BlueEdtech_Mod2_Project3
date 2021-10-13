@@ -41,7 +41,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/personagens/:id", async (req, res) => {
-const personagens = await Personagens.findByPk(req.params.id);
+const personagens = await Personagens.findAll(req.params.id);
 res.render("detalhes", {    personagens,  });
 });
 
@@ -53,6 +53,14 @@ app.get('/personagens', async (req,res) => {
 app.get("/criar", function (req, res) {
     res.render("criar");
 
+});
+
+app.get("/personagens/:id", async (req, res) => {
+  const personagens = await Personagens.findAll(req.params.id);
+
+  res.render("detalhes", {
+    personagens,
+  });
 });
 
 app.post("/criar", async (req, res) => {
