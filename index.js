@@ -42,6 +42,11 @@ app.get("/animes", function (req, res) {
 
 });
 
+app.get("/episodios", function (req, res) {
+    res.render("episodios");
+
+});
+
 app.post("/new_criar", function (req, res) {
     const {numero, nome, tipo, imagem, descricao, altura, peso, categoria, habilidade} = req.body;
     pokedex.push({

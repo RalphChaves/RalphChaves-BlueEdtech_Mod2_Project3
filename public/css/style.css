@@ -8,7 +8,7 @@
     background: #ECECEC;
     z-index: 2;
   } */
-*{
+  *{
     margin:0;
     padding: 0;
     
@@ -68,7 +68,7 @@ footer{
 
 }
 
-  .fifth {
+.fifth {
     border-color: #8e44ad;
     border-radius: 0;
     color: #8e44ad;
@@ -77,8 +77,10 @@ footer{
     z-index: 1;
     -webkit-transition: color 150ms ease-in-out;
     transition: color 150ms ease-in-out;
-  }
-  .fifth:after {
+  
+}
+
+.fifth:after {
     content: '';
     position: absolute;
     display: block;
@@ -92,15 +94,16 @@ footer{
     z-index: -1;
     -webkit-transition: width 150ms ease-in-out;
     transition: width 150ms ease-in-out;
-  }
-  .fifth:hover {
-    color: #fff;
-  }
-  .fifth:hover:after {
-    width: 110%;
-  }
-  
-  input{
-    background-color:greenyellow;
-  }
+}
 
+.fifth:hover {
+    color: #fff;
+}
+
+.fifth:hover:after {
+    width: 110%;
+}
+  
+input{
+    background-color:greenyellow;
+}
