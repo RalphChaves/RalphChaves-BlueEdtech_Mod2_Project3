@@ -155,5 +155,5 @@ res.render("episodios", {
 
 
 
-db.conectado();
+
 app.listen(port, ()=> console.log(`Servidor rodando em http://localhost:${port}`)); //faz o servidor escutar, passando a porta onde o serviço vai ficar ativo
