@@ -3,10 +3,9 @@ const path = require("path"); // importando o path
 const app = express();
 require('dotenv').config();
 const db = require('./model/database');
-const Personagens = require('./model/personagens');
-const Episodes = require('./model/episodes');
+const Personagens = require('../model/personagens');
+const Episodes = require('../model/episodes');
 
-// const mensagemSucesso = "";
 const port = process.env.PORT || 3000;
 
 
@@ -14,14 +13,10 @@ app.set("view engine", "ejs"); //set engine para trabalhar com o EJS
 app.use(express.static(path.join(__dirname,"views/public")));
 app.use(express.urlencoded({ extended: true }));
 
-// let message = "";
 
 app.get("/", function (req, res) {
    
-    // setTimeout(() => {
-    //     message = "";
-    // }, 1000);
-    // res.render("index",{message});
+
     res.render("index");
     
 });
