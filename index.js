@@ -3,8 +3,8 @@ const path = require("path"); // importando o path
 const app = express();
 require('dotenv').config();
 const db = require('./model/database');
-const Personagens = require('../model/personagens');
-const Episodes = require('../model/episodes');
+const Personagens = require('./model/personagens');
+const Episodes = require('./model/episodes');
 
 const port = process.env.PORT || 3000;
 
