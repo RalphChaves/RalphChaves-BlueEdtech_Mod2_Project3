@@ -10,31 +10,50 @@
 </head>
 
 <body>
-    <nav class= "wrap">
-        <!-- <img src="/img/pokebola-go.png" class="img-fluid gif" alt="Animação Pokebola"> -->
-        
-        <a href="/">Home | </a>
-         
-        <a href="criar">Cadastro | </a>
-        
-        <a href="detalhes">Detalhes | </a>
+    <header class="header">
+        <a href="/">Home|</a>
 
-        <a href="animes">Animes | </a>
-     
-    </nav>
-
-    <header>
-        <article>
-            <h1>PAGINA PARA EDITAR AINDA PRECISAMOS DESCOBRIR UMA MELHOR FORMA DE FAZER</h1>
-        </article>
     </header>
-    
+    <form method="POST">
+        <div>
+            <label for="nome">Nome: </label>
+            <input type="nome" name="pers_name" id="nome" placeholder="Digite o nome"
+                value="<%= personagens.pers_name%>" required>
+        </div>
+        <div>
+            <label for="imagem">Imagem: </label>
+            <input type="imgagem" name="ima_url" id="imagem" placeholder="Coloque a url da imagem"
+                value="<%= personagens.ima_url%>" required>
+        </div>
+        <div>
+            <label for="raca">Raça: </label>
+            <input type="text" name="raca" id="raca" placeholder="Digite a Raça" value="<%= personagens.raca%>"
+                required>
+        </div>
+        <div>
+            <label for="habilidade">Habilidade: </label>
+            <input type="text" name="habilidade" id="habilidade" placeholder="Digite a Habilidade"
+                value="<%= personagens.habilidade%>" required>
+        </div>
+        <div>
+            <label for="equipamento">Equipamento: </label>
+            <input type="text" name="equipamento" id="equipamento" placeholder="Digite o Equipamento"
+                value="<%= personagens.equipamento%>" required>
+        </div>
+        <div>
+            <label for="descricao">Descricao: </label>
+            <input type="text" name="descricao" id="descricao" placeholder="Digite a Descrição"
+                value="<%= personagens.descricao%>" required>
+        </div>
+
+        <button type="submit">enviar</button>
+    </form>
     <footer>
         <p>
-            < copyright 2021 by myself > 
+            < copyright 2021 by myself>
         </p>
     </footer>
-    <script src ="/js/script.js"></script>
+    <script src="/js/script.js"></script>
 
 </body>
 

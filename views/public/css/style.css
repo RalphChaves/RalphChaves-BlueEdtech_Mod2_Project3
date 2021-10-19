@@ -1,57 +1,70 @@
 
-/* header {
-    min-height: 60px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    border-bottom: 1px solid #ccc;
-    background: #ECECEC;
-    z-index: 2;
-  } */
-*{
-    margin:0;
-    padding: 0;
-    
-
+body,
+ul,
+li,
+p,
+h2,
+h4 {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Arial;
 }
 
-body{
-    background:black;
-    font:normal 15pt arial;
+body {
+  margin-bottom: 100px;
 }
 
-header{
-    color:white;
-    text-align:center;
-}
-
-section{
-    background: white;
-    border-radius: 10px;
-    padding:15px;
-    width: 500px;
-    margin:auto;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.371);
-
-}
-
-img{
-  display: flex;
-  margin-left: auto;
-  justify-content: top;
-}
-
-a, .wrap{
-  display:flex;
-  width: 35%;
-  margin-right: auto;
-  justify-content: space-around;
-  color: white;
+a {
   text-decoration: none;
-  padding-bottom: 50px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: white;
+}
 
+h1 {
+  text-align: center;
+  margin-top: 100px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.header {
+  background: #1d1e20;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu li {
+  margin-left: 10px;
+}
+
+.menu li a {
+  display: block;
+  padding: 10px;
+}
+
+/* CSS FLEXBOX 1 */
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.flex > div {
+  flex: 1 1 200px;
+  margin: 10px;
 }
 
 .video{
@@ -106,5 +119,26 @@ footer{
 }
   
 input{
-    background-color:greenyellow;
+  display:flex;
+  justify-content:center;
+  background-color:paleturquoise;
+  margin-left: 7%;
+  margin: 0 auto;
+  width: 30%;
+  box-shadow:2px 2px 2px black;
+  
+}
+
+label{
+  display:flex;
+  justify-content:center;
+  margin-left: 7%;
+  margin: 0 auto;
+  
+}
+
+button{
+  display:flex;
+  margin: 0 auto;
+  margin-top: 2%;
 }

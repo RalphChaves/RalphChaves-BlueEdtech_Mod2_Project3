@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Detalhes</title>
+
+</head>
+
+<body>
+     <header class="header">
+        <a href="/">Home|</a>
+        <nav>
+          <ul class="menu">
+            <li><a href="animes">Animes|</a></li>
+            <li><a href="criar">Cadastro|</a></li>
+            <li><a href="personagens">Personagens|</a></li>
+
+          </ul>
+        </nav>
+      </header>
+  
+      <h1>Demon Slayer</h1>
+      
+    <section class="flex">
+        <% personagens.forEach(item => { %>
+        <div>
+            
+            <img src="<%=item.ima_url%>" width="216px" height="310px"><br>
+            <h2 class="flex"><%= item.pers_name %></h2><br>  
+            <p>Raça: <%= item.raca %></p><br> 
+            <h4 class="flex">Equipamento: <%= item.equipamento %></h4> 
+            <p><%= item.descricao %></p><br>
+            <h4 class="flex">Habilidade: <%= item.habilidade %></h4><br>    
+            <a href="/editar/<%=item.id%>"><button>Editar</button></a>
+            <a href="/persdel/<%=item.id%>"><button>Excluir</button></a><br> 
+            
+        </div>
+        <% }) %>
+    </section>
+      
+ 
+    
+   
+    <footer>
+        <p>
+            < copyright 2021 by myself > 
+        </p>
+    </footer>
+    <script src ="/js/script.js"></script>
+
+</body>
+
+</html>

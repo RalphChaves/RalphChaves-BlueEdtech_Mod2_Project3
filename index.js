@@ -3,8 +3,10 @@ const path = require("path"); // importando o path
 const app = express();
 require('dotenv').config();
 const db = require('./model/database');
-const Personagens = require('./model/personagens')
+const Personagens = require('./model/personagens');
+const Episodes = require('./model/episodes');
 
+// const mensagemSucesso = "";
 const port = process.env.PORT || 3000;
 
 
@@ -13,22 +15,6 @@ app.use(express.static(path.join(__dirname,"views/public")));
 app.use(express.urlencoded({ extended: true }));
 
 // let message = "";
-
-// const pokedex = [{ 
-//     numero: "Nº009",
-//     nome: "Blastoise" ,
-//     tipo: "Water",
-//     imagem: "/img/blastoise009.png",
-//     descrição: "It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell.",
-//     altura: "1.6 m",
-//     peso: "85.5 kg",
-//     categoria: "Shellfish",
-//     habilidade: "Torrent",
-
-// }];
-
-
-    
 
 app.get("/", function (req, res) {
    
@@ -40,84 +26,137 @@ app.get("/", function (req, res) {
     
 });
 
-app.get("/personagens/:id", async (req, res) => {
-const personagens = await Personagens.findAll(req.params.id);
-res.render("detalhes", {    personagens,  });
+app.get('/personagens', async (req,res) => {
+  const personagens = await Personagens.findAll();
+  res.render("personagens", {personagens: personagens});
 });
 
-app.get('/personagens', async (req,res) => {
-    const personagens = await Personagens.findAll();
-    res.json(personagens);
-    
+app.get("/personagens/:id", async (req, res) => {
+const personagens = await Personagens.findAll(req.params.id);
+res.render("personagens", {    personagens  });
 });
+
 app.get("/criar", function (req, res) {
     res.render("criar");
 
 });
 
-app.get("/personagens/:id", async (req, res) => {
-  const personagens = await Personagens.findAll(req.params.id);
+app.post("/criar", async (req, res) => {
+  const { pers_name, raca, habilidade, ima_url, equipamento, descricao } = req.body;
+  
+  const personagem = await Personagens.create({
+      pers_name,
+      raca,
+      habilidade,
+      ima_url,
+      equipamento,
+      descricao,
+  }).then(function(){
+    res.send(`Personagem criado com sucesso!
+    Voce pode apertar o Botão "voltar" do seu navegador!`);
+  }).catch(function(erro){
+    res.send("Erro: Personagem nao pode ser cadastrado!" + erro);
+  });
 
-  res.render("detalhes", {
-    personagens,
+  res.render("criar", {
+    personagem,
   });
 });
 
-app.post("/criar", async (req, res) => {
-    const { pers_name, raca, habilidade, ima_url, equipamento, descricao } = req.body;
-    
-    const personagem = await Personagens.create({
-        pers_name,
-        raca,
-        habilidade,
-        ima_url,
-        equipamento,
-        descricao,
-    });
+app.get("/editar/:id", async (req, res) => {
+  const personagens = await Personagens.findByPk(req.params.id);
+  res.render("editar", {personagens: personagens});
+});
+
+app.post("/editar/:id", async (req, res) => {
+  const personagens = await Personagens.findByPk(req.params.id);
+
+  const { pers_name, raca, habilidade, ima_url, equipamento, descricao } = req.body;
+
+  personagens.pers_name = pers_name;
+  personagens.raca = raca;
+  personagens.habilidade = habilidade;
+  personagens.ima_url = ima_url;
+  personagens.equipamento = equipamento;
+  personagens.descricao = descricao;
+
+  await personagens.save();
+
+  res.redirect("/personagens");
+});
+
+app.get('/persdel/:id', async (req,res) => {
+  const personagens = await Personagens.findByPk(req.params.id);
   
-    res.render("criar", {
-      personagem,
-    });
-  });
+  await personagens.destroy();
+
+  res.redirect("/personagens");
+});
+
+
 
 app.get("/animes", function (req, res) {
     res.render("animes");
 
 });
 
-// app.get("/detalhes", function (req, res) {
-//     res.render("detalhes",{Personagens: Personages});
+app.get('/episodios', async (req,res) => {
+   const episodios = await Episodes.findAll();
+   res.render("episodios", {episodios: episodios});
+ });
+
+app.get("/episodios/:id", async (req, res) => {
+ const episodios = await Episodes.findAll(req.params.id);
+ res.render("episodios", {    episodios  });
+});
+
+app.get("/episodios", function (req, res) {
+    res.render("episodios");
+});
+
+app.post("/episodios", async (req, res) => {
+  const { ep_name, ep_numero, ep_descricao, ep_ima_url } = req.body;
+  
+  const episodios = await Episodes.create({
+       ep_name,
+         ep_numero,
+      ep_ima_url,
+      ep_descricao,
+})
+
+res.render("episodios", {
+    episodios,
+});
+});
+
+// app.get("/episodios", function (req, res) {
+//   res.render("episodios");
 
 // });
 
-// app.post("/new_criar", function (req, res) {
-//     const {pers_name, raca, habilidade, ima_url, equipamento, descricao} = req.body;
-//     Personagens.push({
-//     pers_name: nome,
-//     raca: raca,
-//     habilidade: habilidade,
-//     ima_url: imagem,
-//     equipamento: equipamento,
-//     descricao: descricao});
-    
-//     message = "Pokemon cadastrado com sucesso.";
-//     res.redirect("/detalhes",{pers});
-// }); 
+// app.get('/episodios', async (req,res) => {
+//   const episodes = await Episodes.findAll();
+//   res.render("episodios", {episodes: episodes});
+// });
+
+// app.get("/episodios/:id", async (req, res) => {
+// const episodes = await Episodes.findAll(req.params.id);
+// res.render("episodios", {    episodes  });
+// });
 
 
-app.get("/detalhes/:id", function (req, res) {
-    const id = req.params.id;
-    const pokedexx = pokedex[id];
-    res.render("detalhes", {pokedexx,});
-});
+// app.post("/new_episodios", async (req, res) => {
+// const { ep_name, ep_numero, ep_ima_url, ep_descricao } = req.body;
 
+// const episodes = await Episodes.create({
+//     ep_name,
+//     ep_numero,
+//     ep_ima_url,
+//     ep_descricao,
+// })
 
-
-
-
-
-
-
+// res.render("episodios", {episodes});
+// });
 
 
 

@@ -10,44 +10,28 @@
 </head>
 
 <body>
-    <nav class= "wrap">
-            <!-- <img src="/img/pokebola-go.png" class="img-fluid gif" alt="Animação Pokebola"> -->
-            
-            <a href="/">Home | </a>
-             
-            <a href="criar">Cadastro | </a>
-            
-            <a href="detalhes">Detalhes | </a>
+    <header class="header">
+        <a href="/">Home|</a>
+        <nav>
+          <ul class="menu">
+            <li><a href="animes">Animes|</a></li>
+            <li><a href="criar">Cadastro|</a></li>
+            <li><a href="personagens">Personagens|</a></li>
 
-            <a href="animes">Animes | </a>
-         
+          </ul>
         </nav>
-    
-    <header>
-        <article>
-            <h1>Cadastrar</h1>
-        </article>
-    </header>
+      </header>
     <section id="inscrever">
 
-        <form action="/criar" method="POST">
-            <!-- <div>
-                <label for="numero">Numero: </label>
-                <input type="number" name="numero" id="numero" placeholder="Digite o numero" required>
-            </div> -->
+        <form method="POST">
+           
             <div>
                 <label for="nome">Nome: </label>
-                <input type="nome" name="nome" id="nome" placeholder="Digite o nome" required>
+                <input type="nome" name="pers_name" id="nome" placeholder="Digite o nome" required>
             </div>
-            <!-- <div>
-                <label for="imagem">Escolha o Pokemon na lista:</label>
-                <select name="imagem">
-                    <option value="/img/blastoise009.png" src="/img/blastoise00f9.png">blaistose</option>
-                </select>
-            </div> -->
             <div>
                 <label for="imagem">Imagem: </label>
-                <input type="imgagem" name="imagem" id="imagem" placeholder="Coloque a url da imagem" required>
+                <input type="imagem" name="ima_url" id="imagem" placeholder="Coloque a url da imagem" required>
             </div>
             <div>
                 <label for="raca">Raça: </label>
