@@ -91,7 +91,6 @@ footer{
     z-index: 1;
     -webkit-transition: color 150ms ease-in-out;
     transition: color 150ms ease-in-out;
-    margin: 0 auto;
   
 }
 
@@ -138,8 +137,8 @@ label{
   
 }
 
-/* button{
+#cadastro{
   display:flex;
-  
+  margin: 0 auto;
   margin-top: 2%;
-} */
+}
