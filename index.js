@@ -38,7 +38,12 @@ app.get("/criar", function (req, res) {
 
 app.post("/criar", async (req, res) => {
   const { pers_name, raca, habilidade, ima_url, equipamento, descricao } = req.body;
-  
+  if(!pers_name){
+    res.render("criar", {
+      mensagem: "Nome é obrigatório",
+    });
+  }
+
   const personagem = await Personagens.create({
       pers_name,
       raca,
@@ -60,6 +65,11 @@ app.post("/criar", async (req, res) => {
 
 app.get("/editar/:id", async (req, res) => {
   const personagens = await Personagens.findByPk(req.params.id);
+  if (!personagens) {
+    res.render("editar", {
+      mensagem: "Personagem não encontrado!",
+    });
+    }
   res.render("editar", {personagens: personagens});
 });
 
@@ -111,7 +121,11 @@ app.get("/episodios", function (req, res) {
 
 app.post("/episodios", async (req, res) => {
   const { ep_name, ep_numero, ep_descricao, ep_ima_url } = req.body;
-  
+  if(!ep_name){
+    res.render("criar", {
+      mensagem: "Nome do episodio é obrigatório",
+    });
+  }
   const episodios = await Episodes.create({
       ep_name,
       ep_numero,
