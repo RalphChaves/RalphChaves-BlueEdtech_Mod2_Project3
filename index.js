@@ -129,34 +129,9 @@ app.get('/epdel/:id', async (req,res) => {
 
   res.redirect("/episodios");
 });
-// app.get("/episodios", function (req, res) {
-//   res.render("episodios");
-
-// });
-
-// app.get('/episodios', async (req,res) => {
-//   const episodes = await Episodes.findAll();
-//   res.render("episodios", {episodes: episodes});
-// });
-
-// app.get("/episodios/:id", async (req, res) => {
-// const episodes = await Episodes.findAll(req.params.id);
-// res.render("episodios", {    episodes  });
-// });
 
 
-// app.post("/new_episodios", async (req, res) => {
-// const { ep_name, ep_numero, ep_ima_url, ep_descricao } = req.body;
 
-// const episodes = await Episodes.create({
-//     ep_name,
-//     ep_numero,
-//     ep_ima_url,
-//     ep_descricao,
-// })
-
-// res.render("episodios", {episodes});
-// });
 
 
 

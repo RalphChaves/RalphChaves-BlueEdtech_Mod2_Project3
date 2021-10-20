@@ -55,3 +55,29 @@ a {
     display: block;
     padding: 10px;
 }
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+  
+.flex > div {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    padding-top: 2%;
+}
+
+#ac{
+    color: black;
+}
+
+#ac:hover{
+    background: cyan;
+}

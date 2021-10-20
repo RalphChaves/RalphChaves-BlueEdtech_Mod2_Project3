@@ -17,7 +17,7 @@
           <ul class="menu">
             <li><a href="animes">Animes|</a></li>
             <li><a href="criar">Cadastro|</a></li>
-            <li><a href="personagens">Personagens|</a></li>
+            
 
           </ul>
         </nav>
@@ -35,8 +35,8 @@
             <h4 class="flex">Equipamento: <%= item.equipamento %></h4> 
             <p><%= item.descricao %></p><br>
             <h4 class="flex">Habilidade: <%= item.habilidade %></h4><br>    
-            <a href="/editar/<%=item.id%>"><button>Editar</button></a>
-            <a href="/persdel/<%=item.id%>"><button>Excluir</button></a><br> 
+            <a href="/editar/<%=item.id%>"><button class="btn fifth">Editar</button></a>
+            <a href="/persdel/<%=item.id%>"><button class="btn fifth">Excluir</button></a><br> 
             
         </div>
         <% }) %>

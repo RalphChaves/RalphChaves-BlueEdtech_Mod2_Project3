@@ -34,22 +34,21 @@
     </nav>
   </header>
 
-  <div class="nome text-center">
-    <h1>EPISODIOS</h1>
-  </div>
+    <div class="nome text-center">
+      <h1>EPISODIOS</h1>
+    </div>
 
-  <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand">DEMON SLAYER</a>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand">DEMON SLAYER</a>
 
     <ul class="nav nav-tabs">
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+        <a id="ac" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
           aria-expanded="true">Opçoes</a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#1 Temporada">1° Temporada</a></li>
-          <li><a class="dropdown-item" href="#2 Temporada">2° Temporada</a></li>
-          <li><a class="dropdown-item" href="#acao">Episodios Assistidos</a></li>
+          <li><a class="dropdown-item" href="#acao">Cadastrar Episodios</a></li>
           <li>
             <hr class="dropdown-divider">
           </li>
@@ -92,22 +91,25 @@
     <h2>1°TEMPORADA</h2>
   </div>
 
-  <div class="container">
-    <div class="row">
+  <section class="flex">
 
-          <section class="flex">
-          <% episodios.forEach(item=> { %>
-            <div>
+    <div class="container">
+      <div class="row">
+      <% episodios.forEach(item=> { %>
+      <div>
 
-              <img src="<%=item.ep_ima_url%>" class="img-fluid" width="216px" height="310px"><br>
-              <h2 class="title""><%= item.ep_name %></h2><br>
-      <p>Episodio:<%= item.ep_numero %> </p>  
-      <p><%= item.ep_descricao %></p><br>
-      <a href=" /epdel/<%=item.id%>"><button>Excluir</button></a><br>
+        <img src="<%=item.ep_ima_url%>" class="img-fluid" width="216px" height="310px"><br>
+          <h2 class="title""><%= item.ep_name %></h2><br>
+          <p>Episodio: <%= item.ep_numero %> </p>  
+          <p><%= item.ep_descricao %></p><br>
+          <a href=" /epdel/<%=item.id%>"><button>Excluir</button></a><br>
 
-            </div>
-            <% }) %><br>
-        </section>
+      </div>
+      <% }) %><br>
+
+    </div>
+    
+  </section>
 
       </div>
 

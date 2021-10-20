@@ -142,3 +142,11 @@ label{
   margin: 0 auto;
   margin-top: 2%;
 }
+
+img.demon {
+  display: flex;
+  width: 50%;
+  justify-content: center; 
+  padding: 4%;
+   
+}
