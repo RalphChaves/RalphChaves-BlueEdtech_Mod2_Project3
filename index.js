@@ -113,16 +113,47 @@ app.post("/episodios", async (req, res) => {
   const { ep_name, ep_numero, ep_descricao, ep_ima_url } = req.body;
   
   const episodios = await Episodes.create({
-       ep_name,
-         ep_numero,
+      ep_name,
+      ep_numero,
       ep_ima_url,
       ep_descricao,
 })
 
-res.render("episodios", {
-    episodios,
+res.redirect("episodios", {
+    episodios:episodios
 });
 });
+
+// app.get("/editar/:id", async (req, res) => {
+//   const personagens = await Personagens.findByPk(req.params.id);
+//   res.render("editar", {personagens: personagens});
+// });
+
+// app.post("/editar/:id", async (req, res) => {
+//   const personagens = await Personagens.findByPk(req.params.id);
+
+//   const { pers_name, raca, habilidade, ima_url, equipamento, descricao } = req.body;
+
+//   personagens.pers_name = pers_name;
+//   personagens.raca = raca;
+//   personagens.habilidade = habilidade;
+//   personagens.ima_url = ima_url;
+//   personagens.equipamento = equipamento;
+//   personagens.descricao = descricao;
+
+//   await personagens.save();
+
+//   res.redirect("/personagens");
+// });
+
+// app.get('/persdel/:id', async (req,res) => {
+//   const personagens = await Personagens.findByPk(req.params.id);
+  
+//   await personagens.destroy();
+
+//   res.redirect("/personagens");
+// });
+
 
 // app.get("/episodios", function (req, res) {
 //   res.render("episodios");
