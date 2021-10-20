@@ -81,3 +81,29 @@ img {
 #ac:hover{
     background: cyan;
 }
+
+input{
+  display:flex;
+  justify-content:center;
+  background-color:paleturquoise;
+  margin-left: 7%;
+  margin: 0 auto;
+  width: 30%;
+  box-shadow:2px 2px 2px black;
+  
+}
+
+label{
+  display:flex;
+  justify-content:center;
+  margin-left: 7%;
+  margin: 0 auto;
+  
+}
+
+#cadastro{
+    display:flex;
+    margin: 0 auto;
+    margin-top: 2%;
+  }
+
