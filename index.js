@@ -119,42 +119,16 @@ app.post("/episodios", async (req, res) => {
       ep_descricao,
 })
 
-res.redirect("episodios", {
-    episodios:episodios
-});
+res.redirect("/episodios");
 });
 
-// app.get("/editar/:id", async (req, res) => {
-//   const personagens = await Personagens.findByPk(req.params.id);
-//   res.render("editar", {personagens: personagens});
-// });
-
-// app.post("/editar/:id", async (req, res) => {
-//   const personagens = await Personagens.findByPk(req.params.id);
-
-//   const { pers_name, raca, habilidade, ima_url, equipamento, descricao } = req.body;
-
-//   personagens.pers_name = pers_name;
-//   personagens.raca = raca;
-//   personagens.habilidade = habilidade;
-//   personagens.ima_url = ima_url;
-//   personagens.equipamento = equipamento;
-//   personagens.descricao = descricao;
-
-//   await personagens.save();
-
-//   res.redirect("/personagens");
-// });
-
-// app.get('/persdel/:id', async (req,res) => {
-//   const personagens = await Personagens.findByPk(req.params.id);
+app.get('/epdel/:id', async (req,res) => {
+  const episodios = await Episodes.findByPk(req.params.id);
   
-//   await personagens.destroy();
+  await episodios.destroy();
 
-//   res.redirect("/personagens");
-// });
-
-
+  res.redirect("/episodios");
+});
 // app.get("/episodios", function (req, res) {
 //   res.render("episodios");
 

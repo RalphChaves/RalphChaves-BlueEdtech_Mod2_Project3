@@ -100,7 +100,20 @@
       <a href="#" class="name">1° Episodio</a>
                                 
        </div>
-                                
+                   
+  <section class="flex">
+  <% episodios.forEach(item => { %>
+  <div>
+    
+      <img src="<%=item.ep_ima_url%>" class="img-fluid" width="216px" height="310px"><br>
+      <h2 class="title""><%= item.ep_name %></h2><br>
+      <p>Episodio:<%= item.ep_numero %> </p>  
+      <p><%= item.ep_descricao %></p><br>
+      <a href="/epdel/<%=item.id%>"><button>Excluir</button></a><br> 
+      
+  </div>
+  <% }) %><br>
+  </section>             
        
        </div>
 
@@ -302,27 +315,13 @@
     </div>
 </div>
 
-<section class="flex">
-  <% episodios.forEach(item => { %>
-  <div>
-      
-      <img src="<%=item.ep_ima_url%>" width="216px" height="310px"><br>
-      <h2 class="flex"><%= item.ep_name %></h2><br>  
-      <p><%= item.ep_descricao %></p><br>
-      <h4 class="flex">Habilidade: <%= item.habilidade %></h4><br>    
-      <a href="/editar/<%=item.id%>"><button>Editar</button></a>
-      <a href="/persdel/<%=item.id%>"><button>Excluir</button></a><br> 
-      
-  </div>
-  <% }) %>
-</section>
 <section id="inscrever">
   
 
     <form method="POST">
         <div>
             <label for="numero">Numero: </label>
-            <input type="text" name="ep_numero" id="numero" placeholder="Digite a Raça" required>
+            <input type="number" name="ep_numero" id="ep_numero" placeholder="Qual o numero do episodio" required>
         </div>
         <div>
             <label for="nome">Nome: </label>
@@ -341,9 +340,8 @@
         
     </form>
 </section>
-
-
-   
+</header>
+ 
 
 <script src ="/js/index.js"></script>
 </body>
